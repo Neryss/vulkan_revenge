@@ -13,13 +13,16 @@ OBJS = $(SRC:%.cpp=%.o)
 
 OS= $(shell uname)
 
+#g++ .\src\main.cpp -IC:\msys64\glfw-3.3.8.bin.WIN64\include -IC:\VulkanSDK\1.3.261.1\Include -o a.exe
+
 ifeq ($(OS), Linux)
 	CC= clang++
 	LDFLAGS = -lglfw -lvulkan -ldl -lpthread -lX11 -lXxf86vm -lXrandr -lXi
 else ifeq ($(OS), Windows)
-	CC= mingw32-g++.exe
-	CFLAGS += -IC:\VulkanSDK\1.3.261.1\Include -IC:\MinGW\glfw-3.3.8.bin.WIN64\include
-	LDFLAGS = -LC:\VulkanSDK\1.3.261.1\Lib -lvulkan-1 -LC:\MinGW\glfw\lib-mingw-w64 -lglfw3dll
+	NAME= vox.exe
+	CC= /mnt/c/mingw64/bin/g++.exe
+	CFLAGS += -I"C:\VulkanSDK\1.3.261.1\Include" -I"C:\mingw64\glfw\include"
+	LDFLAGS = -L"C:\VulkanSDK\1.3.261.1\Lib" -lvulkan-1 -L"C:\mingw64\glfw\lib-vc2022" -lglfw3
 endif
 
 %.o: %.cpp Makefile $(HEADER)
