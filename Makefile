@@ -4,7 +4,7 @@ MAKEFLAGS += --no-print-directory -j
 
 NAME= vox
 
-HEADER_PATH := ./headers
+HEADER_PATH := ./include
 HEADER := $(wildcard $(HEADER_PATH)/*.hpp)
 
 SRC_PATH := ./src
@@ -38,6 +38,7 @@ clean:
 
 fclean: clean
 	@rm -f $(NAME)
+	@rm -f vox.exe
 
 re: fclean
 	$(MAKE) all
