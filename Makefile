@@ -21,8 +21,8 @@ ifeq ($(OS), Linux)
 else ifeq ($(OS), Windows)
 	NAME= vox.exe
 	CC= /mnt/c/mingw64/bin/g++.exe
-	CFLAGS += -I"C:\VulkanSDK\1.3.261.1\Include" -I"C:\mingw64\glfw\include"
-	LDFLAGS = -L"C:\VulkanSDK\1.3.261.1\Lib" -lvulkan-1 -L"C:\mingw64\glfw\lib-vc2022" -lglfw3
+	CFLAGS += -I"C:\VulkanSDK\1.3.261.1\Include" -I"C:\mingw64\glfw\include" -static
+	LDFLAGS = -L"C:\VulkanSDK\1.3.261.1\Lib" -lvulkan-1 -L"C:\mingw64\glfw\lib-vc2022" -lglfw3dll
 endif
 
 %.o: %.cpp Makefile $(HEADER)
